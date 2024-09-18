@@ -1,0 +1,12 @@
+cansend can0 141#0000000034AB0001
+cansend can0 141#A200000001080F18
+
+sudo ip link set can0 up type can bitrate 500000
+
+candump can0
+cangen can0
+cangen can0 -I 141
+cangen can0 -I 141 -D 0000000034AB0001
+canbusload can0 500000
+
+canlogserver can0

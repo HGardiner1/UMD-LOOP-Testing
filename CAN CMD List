@@ -1,12 +1,10 @@
-cansend can0 141#0000000034AB0001
-cansend can0 141#A200000001080F18
+cansend can0 141#3000000000000000 (read data from motor) pg 8
+cansend can0 141#9000000000000000 (read position data from motor) pg 31
+cansend can0 141#A600F401A08C0000 (changes the position 360 degrees) pg 57
+cansend can0 141#A600F40150460000 (changes the position 180 degrees) 
+cansend can0 141#A200000010270000 (changes the speed to 100dps) pg 49
+cansend can0 141#A2000000A0860100 (changes the speed to 1000dps) 
+cansend can0 141#A2000000D0070000 (changes the speed to 20dps)
+cansend can0 141#8000000000000000 (shuts down motor) cansend can0 141#B100000000000000 
 
-sudo ip link set can0 up type can bitrate 500000
-
-candump can0
-cangen can0
-cangen can0 -I 141
-cangen can0 -I 141 -D 0000000034AB0001
-canbusload can0 500000
-
-canlogserver can0
+(probably should avoid acceleration commands until we know how to work it)
